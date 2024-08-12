@@ -360,3 +360,94 @@ let str4 = 'hello';
 
 
 // TS-Basic-Generics-Recap >> functions, classes, typealiases, defaultvalue, extends, 
+
+// TS-Utility-Types>>
+// there are numbers of types which help us with some common type manipulation 
+
+// Partila>> changea all the property in a object to be optional
+// interface Point {
+//     x: number;
+//     y: number;
+//   }
+  
+//   let pointPart: Partial<Point> = {}; // `Partial` allows x and y to be optional
+//   pointPart.x = 10;
+
+// Required>> change all to be required, optional as well
+
+// Record>> shortcut to define an object with specific key and value type
+// Record<string, number> is equivalent to { [key: string]: number }
+
+// Omit>> removes key from an object type 
+// const bob: Omit<Person, 'age' | 'location'> = {
+//     name: 'Bob'
+//     // `Omit` has removed age and location from the type and they can't be defined here
+//   };
+
+// Pick>> removes all but specified keys from the object 
+// const bob: Pick<Person, 'name'> = {
+//     name: 'Bob'
+//     // `Pick` has only kept name, so age and location were removed from the type and they can't be defined here
+//   };
+
+// Exclude>> removes types from a union 
+// const value: Exclude<Primitive, string> = true; // a string cannot be used here since Exclude removed it from the type.
+
+// ReturnType
+// Extract return type from a function type 
+// type PointGenerator = () => { x: number; y: number; };
+// const point: ReturnType<PointGenerator> = {
+//   x: 10,
+//   y: 20
+// };
+
+// Parameters>> extracts parameters types from a function type as an array
+// type PointPrinter = (p: { x: number; y: number; }) => void;
+// const point: Parameters<PointPrinter>[0] = {
+//   x: 10,
+//   y: 20
+// };
+
+// Readonly>> make all the properties readonly 
+
+
+// TS-Utility-Types-Recap>> Partial, Required, Record, Omit, Pick, Exclude, ReturnType, Parameters, Readonly
+
+
+// TS-Keyof>> extract key type of all property from an object and make an union
+// keyof with explicit keys- on the basis of their value type 
+// keyof with index signatures- on the basis of key type itself 
+
+// TS-null and undefined 
+// by default it's disabled we enable by setting "strictnullchecks"
+
+//  Types 
+// in ts if add null or undefined as type value must be set
+
+// Optional Chaining 
+// it allow us to access propery on an object that may exist or may not exist 
+
+// Nullish COllescence
+// It allows writing expressions that have a fallback specifically when dealing with null or undefined.
+
+// Null Assertion>> to make ts inference system perfect we use "!" operator 
+
+// TS-Array bounds handling>>
+// Even with strictNullChecks enabled, by default TypeScript will assume array access will never return undefined (unless undefined is part of the array type).
+// The config noUncheckedIndexedAccess can be used to change this behavior.
+let array: number[] = [1, 2, 3];
+let value = array[3]; // with `noUncheckedIndexedAccess` this has the type `number | undefined`
+console.log(value);
+
+// TS-null-undefined-Recap>> types,optionalchaining, nullishcoalescence, nullassertion, arrayboundshandling
+
+
+// TS-Definitly-Typed>>
+// NPM packages in the broad JavaScript ecosystem doesn't always have types available.
+// to handle these things we use install a package 
+// npm install --save-dev @types/jquery 
+
+//  TS-Definitly-types-Recap>> Using non-typed NPM packages in TypeScript
+
+
+// TS-5-Updates
